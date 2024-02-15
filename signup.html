@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="index.css">
+  <script src="https://kit.fontawesome.com/ef1328a087.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <nav>
+    <a class="logo" href="home.html">Anatomy Quiz</a>
+
+    <div class="menu">
+      <ul class="navlinks">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
+          <li class="current"><a href="signup.html">Sign-up</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container-3">
+    <h1>Anatomy Quiz</h1>
+    <form action="#">
+      <div class="form-control">
+        <input class="form" type="text" name="fullname" id="fullname" placeholder="Enter fullname" onkeyup="validateName()">
+        <span id="name-message"></span>
+      </div>
+      <div class="form-control">
+        <input class="form" type="email" name="" id="email" placeholder="Enter email adress" onkeydown="validateEmail()">
+        <span id="email-message"></span>
+      </div>      
+      <div class="form-control">
+        <input class="form" type="password" name="password" id="password"placeholder="Enter password" onkeyup="validatePassword()">
+        <span id="password-message"></span>
+      </div>      
+      <div class="form-control">
+        <input class="form" type="password" name="confirm-password" id="password-2" placeholder="Confirm password" onkeyup="confirmPassword()">
+        <span id="password2-message"></span>
+      </div>      
+      <div class="submit">
+        <button class="form btn-1" id="submit" onclick="validateForm()">SIGN-UP NOW</button>
+        <span id="submit-message"></span>
+      </div>      
+    </form>
+
+    <div class="signin">
+      <button class="form btn-1">Sign in with facebook</button>
+      <p class="signin-p">Already have an account? <a href="#">SIGN IN</a></p>
+    </div>
+  </div>
+  <script src="signup.js"></script>
+</body>
+</html>
