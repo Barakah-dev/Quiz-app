@@ -8,27 +8,29 @@
   <script src="https://kit.fontawesome.com/ef1328a087.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <nav>
-    <a class="logo" href="home.html">Anatomy Quiz</a>
+  <nav id="nav">
+    <a class="logo" href="index.html">Anatomy Quiz</a>
 
-    <div class="menu">
+    <div class="menu" >
+      <i class="fa-regular fa-circle-xmark menu-close"></i>
       <ul class="navlinks">
-          <li><a href="home.html">Home</a></li>
+          <li><a href="index.html">Home</a></li>
           <li><a href="quiz.html">Quiz</a></li>
           <li class="current"><a href="signup.html">Sign-up</a></li>
       </ul>
     </div>
+    <i class="fa-solid fa-bars menu-open" id="menu-open"></i>
   </nav>
 
   <div class="container-3">
     <h1>Anatomy Quiz</h1>
-    <form action="#">
+    <form>
       <div class="form-control">
         <input class="form" type="text" name="fullname" id="fullname" placeholder="Enter fullname" onkeyup="validateName()">
         <span id="name-message"></span>
       </div>
       <div class="form-control">
-        <input class="form" type="email" name="" id="email" placeholder="Enter email adress" onkeydown="validateEmail()">
+        <input class="form" type="email" name="" id="email" placeholder="Enter email adress" onkeyup="validateEmail()">
         <span id="email-message"></span>
       </div>      
       <div class="form-control">
@@ -40,7 +42,7 @@
         <span id="password2-message"></span>
       </div>      
       <div class="submit">
-        <button class="form btn-1" id="submit" onclick="validateForm()">SIGN-UP NOW</button>
+        <button class="form btn-1" id="submit" type="submit">SIGN-UP NOW</button>
         <span id="submit-message"></span>
       </div>      
     </form>

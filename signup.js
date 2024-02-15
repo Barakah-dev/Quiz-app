@@ -1,48 +1,72 @@
-//Sing-up Page
+//SIGN-UP PAGE
+
+//Mobile nav
+const body = document.querySelector('body');
+const nav = document.getElementById('nav');
+const menu = document.getElementById('menu');
+const menuOpen = document.getElementById('menu-open');
+const menuClose = document.getElementById('menu-close');
+
+menuOpen.addEventListener('click', () => {
+  nav.classList.add('toggle');
+  console.log('open');
+})
+
+body.addEventListener('click', (e) => {
+  let clickedElement = e.target;
+  console.log('close');
+
+  if (clickedElement.classList.contains('menu-close') || !clickedElement.classList.contains('menu-open')) {
+    nav.classList.remove('toggle'); 
+  }
+});
+
+
+//Sign-up body
 const nameMessage = document.getElementById("name-message");
 const emailMessage = document.getElementById("email-message");
 const passwordMessage = document.getElementById("password-message");
 const password2Message = document.getElementById("password2-message");
 const submitMessage = document.getElementById("submit-message");
 
-let fullName = document.getElementById("fullname").value;
-let email = document.getElementById("email").value;
-let password = document.getElementById('password').value;
-let password2 = document.getElementById('password-2').value;
-const submit = document.getElementById('submit').value;
 
 function validateName() {
-  if (fullName.length === '') {
+  let fullName = document.getElementById("fullname").value;
+  if (fullName.length === 0) {
     nameMessage.innerHTML = 'Name is required';
     return false;
   } else if (!fullName.match(/^[A-Za-z]*\s{1}[A-Za-z]*$/)) {
-    nameMessage.innerHTML = 'Write name in full';
+  // } else if (fullName.match(/(^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$)/)) {
+  // } else if (!fullName.match(/^\w+\s\w+$/gm)) {
+    nameMessage.innerHTML = 'Write name in full'
     return false;
   } else {
-    // nameMessage.innerHTML = '<i class="fa-solid fa-check-circle"></i>';
-    nameMessage.innerHTML = 'valid';
+    nameMessage.innerHTML = '<i class="fa-solid fa-check-circle"></i>';
+    // nameMessage.innerHTML = 'valid';
     return true;
   }
 }
 function validateEmail() {
-  if (email.length == 0) {
+  let email = document.getElementById("email").value;
+  if (email.length === 0) {
     emailMessage.innerHTML = 'Email is required';
     return false;
-  } else if (!email.match(/^[A-Za-z]\._\-[0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) {
+  } else if (!email.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g)) {
     emailMessage.innerHTML = 'Invalid email';
     // emailMessage.innerHTML = '<i class="fa-solid fa-check-circle"></i>' + 'Invalid email';
     return false;
   } else{
-    nameMessage.innerHTML = '<i class="fa-solid fa-check-circle"></i>';
+    emailMessage.innerHTML = '<i class="fa-solid fa-check-circle"></i>';
     return true;
   }
 }
 
 function validatePassword() {
-  if (password.length == 0) {
+  let password = document.getElementById('password').value;
+  if (password.length === 0) {
     passwordMessage.innerHTML = 'Password is required';
      return false;
-  } else if (!password.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/)) {
+  } else if (!password.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm)) {
     passwordMessage.innerHTML = 'Invalid password';
     return false;
   } else{
@@ -52,33 +76,47 @@ function validatePassword() {
 }
 
 function confirmPassword() {
-  if (password !== password2 || password2.length === '') {
+  let password = document.getElementById('password').value;
+  let password2 = document.getElementById('password-2').value;
+
+  if (password2.length === 0) {
+    password2Message.innerHTML = 'Password is required';
+  } else if (password !== password2 ) {
     password2Message.innerHTML = 'Invalid password';
-    console.log('hh');
     return false;
   } else {
     password2Message.innerHTML = '<i class="fa-solid fa-check-circle"></i>';
     return true;
   }
 }
-// function confirmPassword() {
-//   if (password2 === password || password2.length === '') {
-//     password2Message.innerHTML = '<i class="fa-solid fa-check-circle"></i>';
-//     return true;
-//   } else {
-//     password2Message.innerHTML = 'Invalid password';
-//     return false;
-//   }
-// }
 
-function validateForm(e) {
-  if (!validateName() || !validateEmail() || !validatePassword || !confirmPassword()) {
-    // e.preventDefault();
-    submitMessage.style.display = 'block';
+const element = document.querySelector('form');
+element.addEventListener('submit', event => {
+  event.preventDefault();
+  validateForm();
+});
+
+function validateForm() {
+  const submit = document.getElementById('submit');
+  if (!validateName()) {
+   validate();
+  }
+  if (!validateEmail()) {
+   validate();
+  }
+  if (!validatePassword()) {
+   validate();
+  }
+  if (!confirmPassword()) {
+   validate();
+  }
+}
+
+function validate() {
+  submitMessage.style.display = 'block';
     submitMessage.innerHTML = "Please enter all fields";
     setTimeout(() => {
       submitMessage.style.display = 'none';
     }, 5000);
     return false;
-  }
 }
