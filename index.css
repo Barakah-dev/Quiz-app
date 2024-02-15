@@ -377,7 +377,7 @@ form .btn-1:hover{
 
 @media only screen and (max-width: 400px) {
   .form-control span{
-    font-size: 9px;
+    font-size: 8px;
   }
 }
 @media only screen and (max-height: 700px) {
