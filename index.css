@@ -2,7 +2,6 @@
   --color-1: rgb(63, 4, 93);
   --color-2: rgb(181, 24, 167);
   --color-3: rgb(63, 5, 102);
-  /* --color-3: linear-gradient(to right, purple, blue); */
 }
 *{
   margin: 0;
@@ -157,7 +156,6 @@ nav{
 .container-2{
   width: 90%;
   max-width: 600px;
-  /* background-color: #fff; */
   background-color: rgba(255, 255, 255, 0.5);
   margin: 47px auto 0;
   padding: 28px;
@@ -187,14 +185,13 @@ nav{
   font-size: 17px;
   width: 100%;
   padding: 10px;
-  margin: 8px 0;
+  margin: 7px 0;
   border-radius: 7px;
   border: 1px solid var(--color-3);
   color: var(--color-3);
   cursor: pointer;
 }
 .btn:hover:not([disabled]){
-  /* background-color: var(--color-3); */
   background-image:  linear-gradient(to right, rgb(181, 37, 169) 50%, rgb(77, 11, 105));
   color: #fff;
 }
@@ -202,7 +199,7 @@ nav{
   cursor: no-drop;
 }
 .nav-btn{
-  margin: 20px auto 10px;
+  margin: 17px auto 10px;
 }
 .next-btn{
   width: 90px;
@@ -232,7 +229,7 @@ nav{
 }
 .explanation-div{
   position: relative;
-  margin: 20px auto;
+  margin: 19px auto;
   display: flex;
   display: none;
 }
@@ -241,9 +238,9 @@ nav{
 }
 .explanations{
   position: absolute;
-  font-size: 15px;
+  font-size: 14px;
   color: var(--color-3);
-  padding: 9px auto 5px;
+  margin: 9px 0;
   top: 0;
   left: 40px;
 }
@@ -398,7 +395,7 @@ form .btn-1:hover{
   }
 
   .nav-btn{
-    margin: 17px auto 8px;
+    margin: 18px auto 8px;
   }
   .next-btn{
     width: 90px;
