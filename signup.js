@@ -36,13 +36,10 @@ function validateName() {
     nameMessage.innerHTML = 'Name is required';
     return false;
   } else if (!fullName.match(/^[A-Za-z]*\s{1}[A-Za-z]*$/)) {
-  // } else if (fullName.match(/(^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$)/)) {
-  // } else if (!fullName.match(/^\w+\s\w+$/gm)) {
     nameMessage.innerHTML = 'Write name in full'
     return false;
   } else {
     nameMessage.innerHTML = '<i class="fa-solid fa-check-circle"></i>';
-    // nameMessage.innerHTML = 'valid';
     return true;
   }
 }
@@ -53,7 +50,6 @@ function validateEmail() {
     return false;
   } else if (!email.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g)) {
     emailMessage.innerHTML = 'Invalid email';
-    // emailMessage.innerHTML = '<i class="fa-solid fa-check-circle"></i>' + 'Invalid email';
     return false;
   } else{
     emailMessage.innerHTML = '<i class="fa-solid fa-check-circle"></i>';
